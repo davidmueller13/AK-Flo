@@ -297,6 +297,19 @@ static ssize_t kcal_store(struct device *dev, struct device_attribute *attr,
 
 	sscanf(buf, "%d %d %d", &kcal_r, &kcal_g, &kcal_b);
 
+	if (kcal_r <= 0 || kcal_g <= 0 || kcal_b <= 0) {
+		kcal_r = 255;
+		kcal_g = 255;
+		kcal_b = 255;
+		pr_info("[KCAL]: Wrong calibration: safety restor to 255");
+	}
+	else if (kcal_r > 255 || kcal_g > 255 || kcal_b > 255) {
+                kcal_r = 255;
+                kcal_g = 255;
+                kcal_b = 255;
+		pr_info("[KCAL]: Wrong calibration: safety restor to 255");
+	}
+	pr_info("[KCAL]: New calibration to: %d %d %d\n", kcal_r, kcal_g, kcal_b);
 	kcal_tuning_apply();
 
 	return count;
