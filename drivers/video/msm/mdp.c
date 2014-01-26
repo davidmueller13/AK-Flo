@@ -274,7 +274,7 @@ static int kcal_g = 255;
 static int kcal_b = 255;
 int mdp_preset_lut_update_lcdc(struct fb_cmap *cmap, uint32_t *internal_lut);
 
-static void kcal_tuning_apply() {
+static void kcal_tuning_apply(void) {
 	struct fb_cmap cmap;
 
 	cmap.start = 0;
