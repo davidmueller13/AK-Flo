@@ -178,10 +178,7 @@ struct list_head mdp_hist_lut_list;
 DEFINE_MUTEX(mdp_hist_lut_list_mutex);
 uint32_t last_lut[MDP_HIST_LUT_SIZE];
 
-#define CM_LUT 1
-#ifdef CM_LUT
-
-
+#ifdef CONFIG_LUT_COLOR_CONTROL
 /* From mako's arch/arm/mach-msm/lge/lge_qc_lcdc_luts.c
  * Copyright (c) 2011, LG Electronics. All rights reserved.
  *
@@ -716,7 +713,7 @@ static int mdp_lut_hw_update(struct fb_cmap *cmap)
 	return 0;
 }
 
-#ifdef CM_LUT
+#ifdef CONFIG_LUT_COLOR_CONTROL
 int mdp_preset_lut_update_lcdc(struct fb_cmap *cmap, uint32_t *internal_lut)
 {
         uint32_t out;
@@ -2666,7 +2663,7 @@ static int mdp_on(struct platform_device *pdev)
 
 	pr_debug("%s:-\n", __func__);
 
-#ifdef CM_LUT
+#ifdef CONFIG_LUT_COLOR_CONTROL
 	kcal_tuning_apply();
 #endif
 	return ret;
@@ -3462,7 +3459,7 @@ static int mdp_probe(struct platform_device *pdev)
 			mfd->vsync_sysfs_created = 1;
 		}
 	}
-#ifdef CM_LUT
+#ifdef CONFIG_LUT_COLOR_CONTROL
 	rc = device_create_file(&pdev->dev, &dev_attr_kcal);
 #endif
 	return 0;
@@ -3597,7 +3594,7 @@ static int mdp_remove(struct platform_device *pdev)
 		mdp_bus_scale_handle = 0;
 	}
 #endif
-#ifdef CM_LUT
+#ifdef CONFIG_LUT_COLOR_CONTROL
 	device_remove_file(&pdev->dev, &dev_attr_kcal);
 #endif
 	return 0;

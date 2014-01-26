@@ -706,6 +706,12 @@ config FB_MSM_EBI2_PANEL_DETECT
 	---help---
 	  Support for EBI2 panel auto detect
 
+config LUT_COLOR_CONTROL
+        tristate "Set Qualcomm Generic lut color control"
+        default n
+        ---help---
+          Set Qualcomm Generic Look Up Table color control
+
 if FB_MSM_MDSS
 	source "drivers/video/msm/mdss/Kconfig"
 endif
