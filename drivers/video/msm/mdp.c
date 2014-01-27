@@ -179,6 +179,7 @@ DEFINE_MUTEX(mdp_hist_lut_list_mutex);
 uint32_t last_lut[MDP_HIST_LUT_SIZE];
 
 #ifdef CONFIG_LUT_COLOR_CONTROL
+#define DEBUG 1
 /* From mako's arch/arm/mach-msm/lge/lge_qc_lcdc_luts.c
  * Copyright (c) 2011, LG Electronics. All rights reserved.
  *
@@ -301,17 +302,22 @@ static ssize_t kcal_store(struct device *dev, struct device_attribute *attr,
 		kcal_r = 255;
 		kcal_g = 255;
 		kcal_b = 255;
+#if DEBUG
 		pr_info("[KCAL]: Wrong calibration: safety restor to 255");
+#endif
 	}
 	else if (kcal_r > 255 || kcal_g > 255 || kcal_b > 255) {
                 kcal_r = 255;
                 kcal_g = 255;
                 kcal_b = 255;
+#if DEBUG
 		pr_info("[KCAL]: Wrong calibration: safety restor to 255");
+#endif
 	}
+#if DEBUG
 	pr_info("[KCAL]: New calibration to: %d %d %d\n", kcal_r, kcal_g, kcal_b);
 	kcal_tuning_apply();
-
+#endif
 	return count;
 }
 
@@ -322,8 +328,8 @@ static ssize_t kcal_show(struct device *dev, struct device_attribute *attr,
 }
 
 static DEVICE_ATTR(kcal, 0644, kcal_show, kcal_store);
-
 #endif
+
 uint32_t mdp_block2base(uint32_t block)
 {
 	uint32_t base = 0x0;
