@@ -69,7 +69,7 @@
 
 #define IDX_FINGER			3
 #define MAX_FINGER_SIZE          31
-#define MAX_FINGER_PRESSURE  255
+#define MAX_FINGER_PRESSURE  65535
 
 #define ABS_MT_POSITION         0x2a    /* Group a set of X and Y */
 #define ABS_MT_AMPLITUDE        0x2b    /* Group a set of Z and W */
