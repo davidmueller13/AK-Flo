@@ -316,8 +316,8 @@ static ssize_t kcal_store(struct device *dev, struct device_attribute *attr,
 	}
 #if DEBUG
 	pr_info("[KCAL]: New calibration to: %d %d %d\n", kcal_r, kcal_g, kcal_b);
-	kcal_tuning_apply();
 #endif
+	kcal_tuning_apply();
 	return count;
 }
 
