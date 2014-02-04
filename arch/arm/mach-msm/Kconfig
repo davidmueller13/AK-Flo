@@ -1639,6 +1639,12 @@ config LOW_CPUCLOCKS
         help
           Ultra low cpu frequencies enabled for CPU and L2 Cache
 
+config MSM_SLEEPER
+	bool "Limit max frequency while screen is off"
+	default n
+	help
+	  Limit max frequency while screen is off
+
 config MSM_CPU_VOLTAGE_CONTROL
 	bool "Userspace CPU Voltage Control"
 	default y
