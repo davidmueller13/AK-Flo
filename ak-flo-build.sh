@@ -10,7 +10,7 @@ clear
 
 # AK Kernel Version
 BASE_AK_VER="AK"
-VER=".050.EXODUS.FLO"
+VER=".051.EXODUS.FLO"
 AK_VER=$BASE_AK_VER$VER
 
 # AK Variables
