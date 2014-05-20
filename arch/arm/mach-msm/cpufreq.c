@@ -38,7 +38,7 @@
 
 #ifdef CONFIG_MSM_SLEEPER
 /* maxscroff */
-uint32_t maxscroff_freq = 486000;
+uint32_t maxscroff_freq = 702000;
 uint32_t maxscroff = 1;
 #endif
 
@@ -334,7 +334,7 @@ int msm_cpufreq_set_freq_limits(uint32_t cpu, uint32_t min, uint32_t max)
 	else
 		limit->allowed_max = limit->max;
 
-	pr_info("%s: Limiting cpu %d min = %d, max = %d\n",
+	pr_debug("%s: Limiting cpu %d min = %d, max = %d\n",
 			__func__, cpu,
 			limit->allowed_min, limit->allowed_max);
 
