@@ -117,8 +117,8 @@ static struct msm_bus_scale_pdata bus_scale_data __initdata = {
 };
 
 #ifdef CONFIG_LOW_CPUCLOCKS
-#define L2_BW_MID 6
-#define L2_BW_HIGH 15
+#define L2_BW_MID 5
+#define L2_BW_HIGH 14
 #else
 #define L2_BW_MID 5
 #define L2_BW_HIGH 14
