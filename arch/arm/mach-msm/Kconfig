@@ -1645,12 +1645,6 @@ config CPU_OVERCLOCK
 	help
 	  Krait overclocking up to 1.728 GHz
 
-config MSM_SLEEPER
-	bool "Limit max frequency while screen is off"
-	default n
-	help
-	  Limit max frequency while screen is off
-
 config MSM_CPU_VOLTAGE_CONTROL
 	bool "Userspace CPU Voltage Control"
 	default y
