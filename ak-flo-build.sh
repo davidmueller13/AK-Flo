@@ -10,7 +10,7 @@ clear
 
 # AK Kernel Version
 BASE_AK_VER="AK"
-VER=".100.POSEIDON.FLO.CM"
+VER=".108.POSEIDON.FLO.CM"
 AK_VER=$BASE_AK_VER$VER
 
 # AK Variables
